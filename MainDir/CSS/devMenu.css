@@ -1,0 +1,36 @@
+.devMenuBGlayer {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.053);
+    cursor: pointer;
+}
+.devMenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 250px;
+    width: 500px;
+    background: black;
+    z-index: 999;
+    border: 1px solid white;
+}
+
+.ask, .respond {
+    height: 60px;
+    width: 160px;
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+.ask:hover, .respond:hover {
+    opacity: 0.6;
+}

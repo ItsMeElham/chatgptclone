@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="apple-touch-icon" type="image/png" href="/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+    <meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
+
+    <title>MaxAi.me - Ai Copilot for the Web</title>
+
+    <link rel="stylesheet" href="CSS/Main.css">
+    <link rel="stylesheet" href="CSS/chatInterface.css">
+    <link rel="stylesheet" href="CSS/sideMenu.css">
+    <link rel="stylesheet" href="CSS/scrollbar.css">
+    <link rel="stylesheet" href="CSS/settings.css">
+    <link rel="stylesheet" href="CSS/devMenu.css">
+    
+    <!-- keep below all stylesheets! -->
+    <link rel="stylesheet" href="CSS/mediaqueries.css">
+
+    <style>
+    </style>
+</head>
+<body>
+<div class="main">
+
+    <div class="introScreen">
+
+        <h1> ChatGPT </h1>
+
+        <div class="all-container">
+
+        <div class="examplesCont txtBoxesContainer">
+
+            <div class="examples title">
+                <img src="icons/icons8-sun.svg" alt="sun-icon" class="icon-big sun">
+                <p>Examples</p>
+            </div>
+
+            <div class="ex-1 txtBoxes ex-box">
+                <p>
+                    "<span class="ex">Explain quantom computers in simple terms</span>" &rarr;
+                </p>
+            </div>
+
+            <div class="ex-2 txtBoxes ex-box">
+                <p>
+                    "<span class="ex">Got any creative ideas for a 10 years old's birthday?</span>" &rarr;
+                </p>
+            </div>
+
+            <div class="ex-3 txtBoxes ex-box">
+                <p>
+                    "<span class="ex"></span>How do i make a HTTP request in javascript?</span>" &rarr;
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="capabilitiesCont txtBoxesContainer">
+
+            <div class="capabilities title">
+                <img src="icons/icons8-lightning-bolt-24.png" class="icon-big bolt">
+                <p>Capabilities</p>
+            </div>
+
+            <div class="cap-1 txtBoxes">
+                <p> Remembers what user said earlier in the conversation </p>
+            </div>
+
+            <div class="cap-2 txtBoxes">
+                <p> Allows user to provide follow-up corrections </p>
+            </div>
+
+            <div class="cap-3 txtBoxes">
+                <p> Trained to decline inappropriate requests </p>
+            </div>
+        </div>
+
+
+        <div class="limitations txtBoxesContainer">
+
+            <div class="limitations title">
+                <img src="icons/icons8-error-48.png" class="icon-big error">
+                <p>Limitations</p>
+            </div>
+
+            <div class="lim-1 txtBoxes">
+                <p> May occasionally generate incorrect information </p>
+            </div>
+
+            <div class="lim-2 txtBoxes">
+                <p> May occasionally produce harmful instructions or biased content </p>
+            </div>
+
+            <div class="lim-3 txtBoxes">
+                <p> Limited knowledge of world and events after 2021 </p>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- usless -->
+    <div class="space"></div>
+
+</div>
+
+    <!-- chatInterface visible only when the user types/asks for something.. -->
+    <div class="chatInterfaceContainer" style="display: none;">
+        <div class="chatInterface"></div>
+        <div class="space"></div>
+    </div>
+
+    <!-- side menu -->
+    <div class="sideMenu sideMenuHide">
+
+        <div class="NewChatCont">
+            <div class="newChat btn">
+                <img src="icons/icons8-plus-math-32.png" class="icon-small plus">
+                <span class="text"> New chat </span>
+            </div>
+            
+            <div class="toggleSideBar btn">
+                <img src="icons/icons8-sidebar-48.png" class="icon-small plus">
+            </div>
+        </div>
+
+        <div class="history"></div>
+
+        <div class="options">
+
+            <div class="upgradeToPlus btn">
+                <img src="icons/icons8-customer-64.png" class="icon-small user">
+                <span class="btnText"> Upgrade to Plus </span>
+                <span class="new text btnText"> NEW </span> <!-- temporary  -->
+            </div>
+
+            <div class="emailAndMore btn">
+                <div class="profilePic">
+                    <img src="images/chatgpt_profile.jpg">
+                </div>
+                <span class="btnText">human@gmail.com</span>
+                <img src="icons/icons8-more-50.png" class="icon-small more">
+            </div>
+
+            <!-- other options Menu -->
+            <div class="otherOptions" style="display: none">
+
+                
+            <!-- 'clear conversation'^ only visible after a conversation -->
+            <div class="clearConversation otherBtn" style="display: none">
+                <img src="icons/icons8-trash-64.png" class="icon-small trashCan">
+                <span class="text"> Clear conversations</span>
+            </div>
+
+            <div class="clearConversation confirmClearConv otherBtn" style="display: none">
+                <img src="icons/icons8-done-60.png" class="icon-small tickMark">
+                <span class="text"> Confirm Clear Conversation</span>
+            </div>
+
+        <a href="https://help.openai.com/en/collections/3742473-chatgpt" target="_blank">
+            <div class="helpAndFAQ otherBtn">
+                <img src="icons/icons8-external-link-32.png" class="icon-small help">
+                <span class="text"> Help & FAQ </span>
+            </div>
+        </a>
+
+            <div class="setting otherBtn">
+                <img src="icons/icons8-setting-32.png" class="icon-small gear">
+                <span class="text"> Settings </span>
+            </div>
+
+            <hr>
+
+            <div class="logOut otherBtn">
+                <img src="icons/icons8-logout-48.png" class="icon-small logout">
+                <span class="text"> Log out </span>
+            </div>
+
+        </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- Main input box -->
+
+        <div class="input">
+            <div class="inputBox">
+                <input class="textInput" placeholder="Send a message.."> 
+
+                <span class="send icon-small sendIcon" style="display: flex;">
+                    <img src="icons/icons8-send-24.png"  class="sendImage">
+                </span>
+                <div class="loading-animation" style="display: none;">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                  </div>
+            </div>
+
+            <p>Free Research Preview. ChatGPT may produce inaccurate information about people, places, or facts. <a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes">  ChatGPT Mar 23 Version </a> </p>
+        </div>
+
+    </div>
+
+    <!-- settings -->
+<div class="settingsMenuBGlayer" style="display: none">
+    <div class="settings">
+
+        <div class="nav">
+            <span class="text"> Settings </span>
+            <img src="icons/icons8-close-50.png" class="icon-small close">
+        </div>
+
+        <div class="MainContent">
+
+        <div class="settingsCatagory">
+
+            <div class="general Btn" tabindex="0">
+                <img src="icons/icons8-setting-32.png" class="icon-small gear">
+                <span class="text"> General </span>
+            </div>
+
+            <div class="dataControls Btn" tabindex="0">
+                <img src="icons/icons8-database-48.png" class="icon-small dataBase">
+                <span class="text"> Data Controls </span>
+            </div>
+
+        </div>
+
+        <div class="settingsContent">
+
+            <div class="theme">
+                <span class="text"> Theme </span>
+                <select class="themeType">
+                    <option value="Syetem"> System </option>
+                    <option value="Dark"> Dark </option>
+                    <option value="Light"> Light </option>
+                </select>
+            </div>
+            <hr>
+            <div class="clear">
+                <span class="text"> Clear all chats </span>
+                <button class="clearBtn"> Clear </button>
+            </div>
+        </div>
+</div>
+
+    </div>
+</div>
+
+    <!-- UTP = Upgrade to plus-->
+    <div class="UTPMenuBGlayer" style="display: none">
+        <div class="UTPMenu">
+    
+            <div class="nav">
+                <span class="text"> Your plan </span>
+                <img src="icons/icons8-close-50.png" class="icon-small closeUTPMenu">
+            </div>
+    
+            <div class="content"> Just kidding our services are 100% Free! </div>
+        </div>
+    
+        </div>
+
+        <div class="connectionReport"> 
+            Elham just connected!
+        </div>
+
+    <!-- devmenu ONLY ACCESSABLE FOR ADMIN -->
+<div class="devMenuBGlayer" style="display: none">
+    <div class="devMenu">
+        <button class="ask"> Ask </button>
+        <button class="respond"> Respond </button>
+    </div>
+</div>
+
+</body>
+    <script src="Main.cjs"></script>
+    <script src="sideMenu.js"></script>
+</html>

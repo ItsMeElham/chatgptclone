@@ -1,0 +1,235 @@
+.sideMenu {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    min-height: 330px;
+    width: 260px;
+    background: #202123;
+    padding: 8px;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    animation: showMenu linear 1 0.15s
+}
+@keyframes showMenu {
+    from {
+        left: -260px;
+    }
+    to {
+        left: 0px;
+    }
+}
+
+.mainFS .sideMenu {
+    left: -260px;
+    animation: hideMenu linear 1 0.15s;
+}
+@keyframes hideMenu {
+    from {
+        left: 0px;
+    }
+    to {
+        left: -260px;
+    }
+}
+
+.btn, .otherBtn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 15px;
+    padding: 14px 12px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.emailAndMore {
+    gap: 10px;
+}
+
+.more, .profilePic {
+    height: 20px;
+}
+.more {
+    height: 13px;
+    width: 13px;
+    margin-top: 3px;
+}
+.btnText {
+    line-height: 20px;
+}
+.profilePic {
+    width: 20px;
+}
+
+.profilePic img {
+    height: 100%;
+    width: 100%;   
+    border-radius: 2px;
+}
+
+.options .icon {
+    font-size: 15px;
+}
+
+.btn:hover {
+    background: #343541;
+    cursor: pointer;
+}
+
+.NewChatCont {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+.newChat, .toggleSideBar {
+    border: 0.01em solid #4a4a4c;
+    border-radius: 5px;
+    width: calc(80% - 4px);
+    transition: 0.15s;
+}
+.newChat:hover, .toggleSideBar:hover {
+    background: #2b2c2f;
+}
+
+.toggleSideBar {
+    position: absolute;
+    right: 5px;
+    display: flex;
+    justify-content: center;
+    width: calc(20% - 4px);
+}
+.mainFS .toggleSideBar {
+    right: calc(-20% - 5px);
+    animation: toggle linear 1 0.15s;
+}
+@keyframes toggle {
+    from {
+        right: 5px;
+    }
+    to {
+        right: calc(-20% - 5px);
+    }
+}
+
+.options, .otherOptions {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    border-top: 0.01em solid #4a4a4c;
+    background: #202123;
+}
+.options .btn {
+    border-radius: 5px;
+    margin-bottom: 0px;
+}
+
+.otherOptions {
+    background: black;
+    bottom: 55px;
+    left: 0px;
+    gap: 5px;
+    width: 100%;
+    border-radius: 5px;
+    padding: 5px 0px;
+    border: none;
+}
+
+.otherOptions hr {
+    border: 1px solid #444654;
+    margin-bottom: 5px;
+}
+
+.otherBtn{
+    padding: 12px 12px;
+}
+
+.otherBtn:hover {
+    background: #444654;
+    cursor: pointer;
+}
+.otherBtn span {
+    line-height: 20px;
+}
+.otherBtn .icon-small {
+    height: 18px;
+    width: 18px;
+}
+.otherBtn .trashCan {
+    height: 20px;
+    width: 20px;
+}
+.otherBtn .tickMark {
+    height: 16px;
+    width: 16px;
+}
+.confirmClearConv span {
+    line-height: 17px;
+}
+
+/* temporary, remove once removed from the orignal chatgpt web */
+.new {
+    background: #f7df93;
+    padding: 0px 5px;
+    color: black;
+    font-size: 12px;
+    border-radius: 5px;
+    margin-left: 25px;
+}
+
+/* upgrade to plus */
+.UTPMenuBGlayer {
+    position: fixed;
+    height: 100%;
+    width: 100vw;
+    z-index: 999;
+    bottom: 0;
+    background: #343541cc;
+}
+.UTPMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 300px;
+    width: 550px;
+    background: #202123;
+    border-radius: 5px;
+}
+
+.UTPMenu .nav {
+    display: flex;
+    gap: 420px;
+    padding: 14px 16px;
+    width: 100%;
+    border-bottom: 1px solid rgb(71, 69, 69);
+}
+
+.UTPMenu .nav .text {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    color: white;
+    cursor: pointer;
+}
+.UTPMenu .nav img {
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    align-self: flex-end;
+}
+.UTPMenu .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 14px;
+    color: rgb(180, 180, 180);
+}

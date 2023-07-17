@@ -1,0 +1,326 @@
+* {
+    font: lighter 14px Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #ffffff;
+}
+a {
+    text-decoration: none;
+}
+body {
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: #343541;
+}
+h1 {
+    text-align: center;
+    font-size: 36px;
+    margin: 120px 0px 60px 0px;
+    font-weight: 600;
+}
+
+.introScreen {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important; 
+    -ms-flex-direction: column;
+    flex-direction: column;
+    position: absolute;
+    padding: 20px;
+    right: 0;
+    top: 0;
+    width:   calc(100vw - 260px);
+    animation: halfScreen linear 1 0.15s;
+}
+@keyframes halfScreen {
+    from {
+        width: 100vw;
+    }
+    to {
+        width: calc(100vw - 260px);
+    }
+}
+
+.mainFS .introScreen {
+    width: 100vw;
+    animation: fullScreen linear 1 0.15s;
+}
+@keyframes fullScreen {
+    from {
+        width: calc(100vw - 260px);
+    }
+    to {
+        width: 100vw;
+    }
+}
+
+.all-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    max-width: 950px;
+}
+
+.title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 15px;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    align-items: center;
+    padding: 1px;
+    margin-bottom: 12px;
+}
+.title p {
+    font-size: 18px;
+}
+
+.txtBoxesContainer {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 24%;
+    max-width: 300px;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    align-items: center;
+}
+
+.txtBoxes {
+    background: #3e3f4b;
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    -webkit-border-radius: 5px;
+}
+.examplesCont .txtBoxes:hover {
+    background: #202123;
+    cursor: pointer;
+}
+
+.txtBoxes p {
+    text-align: center;
+    line-height: 1.4;
+}
+
+.icon-big {
+    height: 28px;
+    width: 28px;
+}
+.error {
+    height: 25px;
+    width: 28px;
+}
+.icon-small {
+    height: 15px;
+    width: 15px;
+}
+
+.user {
+    height: 18px;
+    width: 18px;
+}
+
+
+.space {
+    height: 80px;
+    width: 100%;
+    margin-top: 80px;
+}
+
+/*input box (send message..) && children */
+@keyframes halfScreenInp {
+    from {
+        width: 100vw;
+    }
+    to {
+        width: calc(100vw - 260px - 8px);
+    }
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    height: 120px;
+    width: calc(100vw - 260px - 8px);
+    padding-top: 8px;
+    background: linear-gradient(transparent, #343541);
+    scrollbar-width: none;
+    -webkit-scrollbar: none;
+    animation: halfScreenInp linear 1 0.15s;
+}
+
+@keyframes fullScreenInp {
+    from {
+        width: calc(100vw - 260px - 8px);
+    }
+    to {
+        width: 100vw;
+    }
+}
+
+.mainFS .input {
+    width: 100vw;
+    animation: fullScreenInp linear 0.15s;
+}
+
+
+
+.inputBox {
+    display: flex;
+    flex-direction: row;
+    width: 74%;
+    max-width: 750px;
+    padding: 14px;
+    background: #40414f;
+    border-radius: 10px;
+}
+
+.inputBox span {
+    color: gray;
+}
+
+.inputBox input {
+    width: 95%;
+    background: transparent;
+    border: none;
+    height: 26px;
+    font-size: 16px;
+    -webkit-appearance: none;
+}
+.sendIcon {
+    display: flex;
+    justify-content: center;
+    height: 20px;
+    width: 20px;
+    padding: 4px;
+    margin-left: 15px;
+    box-sizing: content-box;
+}
+.activeSend {
+    background: #19c37d;
+    border-radius: 5px;
+    cursor: pointer;
+    animation: 1 activate linear 0.2s;
+}
+@keyframes activate {
+    0% {
+        background: transparent;
+    }
+    100% {
+        background: #19c37d;
+    }
+}
+
+.inputBox input::placeholder {
+    color: #7c7c8d;
+}
+
+.inputBox input:focus {
+    outline: none;
+}
+
+.input p {
+    font-size: 12px;
+    color: rgb(215, 215, 215);
+    margin-top: 15px;
+}
+.input p a {
+    color: rgb(215, 215, 215);
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+
+
+.loading-animation {
+    display: block;
+    margin: 10px 0 0 10px;
+    width: 17px;
+  }
+  
+  .dot {
+    display: inline-block;
+    width: 3px;
+    height: 3px;
+    background-color: #bdbdbd;
+    border-radius: 50%;
+    opacity: 0;
+    animation: dot-blink 1.5s infinite linear;
+    margin: 0;
+  }
+  
+  .dot:nth-child(1),
+  .dot:nth-child(4),
+  .dot:nth-child(7) {
+    animation-delay: 0s;
+  }
+  
+  .dot:nth-child(2),
+  .dot:nth-child(5),
+  .dot:nth-child(8) {
+    animation-delay: 0.5s;
+  }
+  
+  .dot:nth-child(3),
+  .dot:nth-child(6),
+  .dot:nth-child(9) {
+    animation-delay: 1s;
+  }
+  
+  @keyframes dot-blink {
+    0%, 10%, 90%, 100% {
+      opacity: 0;
+    }
+    20%, 80% {
+      opacity: 1;
+    }
+  }
+  
+
+.connectionReport {
+    display: flex;
+    gap: 10px;
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: black;
+    padding: 15px 40px;
+    border-radius: 50px;
+}
+.greenDot {
+    height: 8px;
+    width: 8px;
+    background: #11ff00;
+    border-radius: 50%;
+    align-self: center;
+}
+
+.userConnectionShow {
+    top: 20px;
+    animation: showUser linear 1 0.15s;
+}
+@keyframes showUser {
+    from {
+        top: -60px
+    }
+    to {
+        top: 20px;
+    }
+}

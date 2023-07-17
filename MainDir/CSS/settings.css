@@ -1,0 +1,115 @@
+.settingsMenuBGlayer {
+    position: fixed;
+    height: 100%;
+    width: 100vw;
+    z-index: 999;
+    bottom: 0;
+    background: #343541cc;
+}
+.settings {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 420px;
+    width: 670px;
+    background: #202123;
+    border-radius: 5px;
+}
+.nav {
+    display: flex;
+    padding: 26px 26px;
+    width: 100%;
+    border-bottom: 1px solid rgb(71, 69, 69);
+}
+
+.settings .nav .text {
+    font: 19px 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    line-height: 20px;
+    color: rgb(216, 216, 216);
+    cursor: pointer;
+}
+.settings .nav img {
+    position: absolute;
+    right: 20px;
+    top: 25px;
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+}
+
+.settings .MainContent {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.settingsCatagory {
+    display: flex;
+    flex-direction: column;
+    width: calc(27% - 15px) ;
+    height: auto;
+    margin-left: 15px;
+}
+
+.settingsCatagory .Btn {
+    display: flex;
+    gap: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 7px;
+    user-select: none;
+}
+
+.Btn .icon-small {
+    height: 19px;
+    width: 19px;
+}
+.Btn .text {
+    line-height: 19px;
+}
+.Btn:focus {
+    background: #343541;
+}
+
+.settingsContent {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    width: calc(73% - 20px - 15px);
+}
+.settingsContent hr {
+    border-color: gray;
+}
+.theme, .clear {
+    display: flex;
+    gap: 300px;
+}
+.theme .text, .clear .text {
+    line-height: 40px;
+    color: #cbcbcb;
+}
+
+.themeType, .clearBtn {
+    color: gray;
+    background: transparent;
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: 1px solid rgb(114, 114, 114);
+}
+.clearBtn {
+    background: rgb(180, 27, 27);
+    border: none;
+    color: white;
+    padding: 8px 12px;
+}
+.themeType:focus {
+    border: 2px solid rgb(77, 77, 240);
+}
+
+option {
+    color: gray;
+}
